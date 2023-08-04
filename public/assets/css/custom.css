@@ -1,0 +1,129 @@
+.banner-content-wrapper .search-form-wrapper input {
+	width: 100%;
+	height: 54px;
+}
+
+.product-style-one .card-thumbnail a img {
+	height: 280px;
+}
+.stock-items-row {
+	align-items: flex-start;
+	justify-content: space-evenly;
+}
+.stock-item {
+	margin-bottom: 25px;
+	width: auto;
+}
+.product-share-wrapper {
+	display: none;
+}
+
+.product-share-wrapper + a {
+	display: none;
+}
+.product-share-wrapper .profile-share a img {
+	height: 30px;
+	object-fit: cover;
+	object-position: center;
+}
+.search-filter {
+	flex: 0 0 auto;
+	width: 378px;
+}
+
+.search-content {
+	flex: 0 0 auto;
+	width: calc(100% - 378px);
+}
+
+.nuron-expo-filter-widget .content .nuron-form-check label {
+	background: transparent;
+	display: inline-block;
+	height: 40px;
+	color: var(--color-body);
+	font-size: 16px !important;
+	line-height: 35px;
+	text-decoration: none;
+	margin: 3px;
+	border: 2px solid var(--color-border);
+	transition: 0.4s;
+	padding: 0 20px;
+	border-radius: 100px;
+}
+
+.nuron-expo-filter-widget .content .nuron-form-check label:before,
+.nuron-expo-filter-widget .content .nuron-form-check label:after {
+	display: none;
+}
+
+.nuron-expo-filter-widget .content .nuron-form-check input:checked + label {
+	background: #42a4fe;
+	color: #fff;
+}
+
+.nuron-expo-filter-widget .content .nuron-form-check {
+	display: inline-block;
+	margin-right: 10px;
+}
+.nuron-expo-filter-widget {
+	margin-bottom: 30px;
+}
+
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-all {
+	background-color: transparent !important;
+	border: 2px solid #fff !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-black {
+	background-color: black !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-blue {
+	background-color: blue !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-cyan {
+	background-color: cyan !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-gray {
+	background-color: gray !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-green {
+	background-color: green !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-orange {
+	background-color: orange !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-pink {
+	background-color: pink !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-purple {
+	background-color: purple !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-red {
+	background-color: red !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-white {
+	background-color: white !important;
+}
+.nuron-expo-filter-widget .content .nuron-form-check label.bg-color-yellow {
+	background-color: yellow !important;
+}
+
+.nuron-expo-filter-widget.widget-color .content .nuron-form-check label {
+	font-size: 0 !important;
+	width: 35px;
+	height: 35px;
+	max-width: 40px;
+	border: 2px solid transparent;
+	padding: 0;
+}
+.nuron-expo-filter-widget.widget-color .content .nuron-form-check input:checked + label {
+	border-color: #fff;
+	outline: 3px solid #42a4fe;
+}
+.rn-new-items .search-form-wrapper input {
+	width: 100%;
+	height: 50px;
+}
+
+.rn-new-items .search-form-wrapper {
+	margin-bottom: 40px;
+}
