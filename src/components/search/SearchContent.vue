@@ -34,7 +34,7 @@
 					@click='changePage(pageNumber)'
 					href='#'
 					:class='{
-						active: page === pageNumber
+						active: parseInt(page) === pageNumber
 					}'
 				>
 					{{ page == pageNumber - 3 || page == pageNumber + 3 ? '...' : pageNumber }}
