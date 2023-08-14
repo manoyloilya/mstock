@@ -6,7 +6,7 @@
 			<div class="content">
 				<option-tag
 					type="checkbox"
-					name="orientation"
+					name="stockOrientation"
 					optiontitle="Horizontal"
 					value="1446"
 					v-model="optionValue"
@@ -14,7 +14,7 @@
 				></option-tag>
 				<option-tag
 					type="checkbox"
-					name="orientation"
+					name="stockOrientation"
 					optiontitle="Panoramic"
 					value="1449"
 					v-model="optionValue"
@@ -22,7 +22,7 @@
 				></option-tag>
 				<option-tag
 					type="checkbox"
-					name="orientation"
+					name="stockOrientation"
 					optiontitle="Square"
 					value="1448"
 					v-model="optionValue"
@@ -30,7 +30,7 @@
 				></option-tag>
 				<option-tag
 					type="checkbox"
-					name="orientation"
+					name="stockOrientation"
 					optiontitle="Vertical"
 					value="1447"
 					v-model="optionValue"
@@ -54,15 +54,15 @@ export default {
 	},
 	methods: {
 		changeType() {
-			let stockOrientationArr = this.stockOrientation.split(',').filter(Number)
+			let stockOrientationArr = _.split(this.stockOrientation, ',').filter(Number)
 			if (stockOrientationArr.includes(this.optionValue)) {
 				const index = stockOrientationArr.indexOf(this.optionValue)
 				stockOrientationArr.splice(index, 1)
 			} else {
 				stockOrientationArr.push(this.optionValue)
 			}
-			this.setPage(1)
 			this.setStockOrientation(stockOrientationArr.toString())
+			this.setPage(1)
 			this.fetchItems()
 		},
 		...mapMutations({
@@ -75,7 +75,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			stockOrientation: state => state.searchItems.stockOrientation
+			stockOrientation: state => state.searchItems.query.stockOrientation
 		})
 	}
 }

@@ -6,7 +6,7 @@
 			<div class="content">
 				<option-tag
 					type="radio"
-					name="type"
+					name="stockType"
 					optiontitle="Photos"
 					value="2872"
 					v-model="optionValue"
@@ -14,7 +14,7 @@
 				></option-tag>
 				<option-tag
 					type="radio"
-					name="type"
+					name="stockType"
 					optiontitle="Vectors"
 					value="2873"
 					v-model="optionValue"
@@ -22,7 +22,7 @@
 				></option-tag>
 				<option-tag
 					type="radio"
-					name="type"
+					name="stockType"
 					optiontitle="PSD"
 					value="2874"
 					v-model="optionValue"
@@ -30,7 +30,7 @@
 				></option-tag>
 				<option-tag
 					type="radio"
-					name="type"
+					name="stockType"
 					optiontitle="Icons"
 					value="2875"
 					v-model="optionValue"
@@ -57,10 +57,10 @@ export default {
 			this.setPage(1)
 			this.setStockType(this.optionValue)
 
-			this.$router.push({
-				name: 'search',
-				query: { page: 1, stock_type: this.optionValue }
-			})
+			// this.$router.push({
+			// 	name: 'search',
+			// 	query: { page: 1, ...(this.$route.query, {stock_type: this.optionValue}) }
+			// })
 			this.fetchItems()
 		},
 		...mapMutations({

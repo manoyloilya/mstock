@@ -7,7 +7,7 @@
 				<option-tag
 					v-for="(value, color) in this.colors"
 					type="radio"
-					name="color"
+					name="stockColor"
 					:optiontitle="color"
 					:value="value"
 					:bgcolor="color"

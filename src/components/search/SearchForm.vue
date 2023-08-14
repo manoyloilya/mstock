@@ -1,11 +1,19 @@
 <template>
 	<form class="search-form-wrapper" action="#">
-		<input type="search" placeholder="Search Here" aria-label="Search" @input="setSearchQuery" />
+		<input :value="$route.query.search" type="search" placeholder="Search Here" aria-label="Search" @input="setSearchQuery" />
 		<div class="search-icon">
-			<button>
+			<button @click="clearSearchQuery">
 				<i :class="search ? 'feather-x' : 'feather-search'"></i>
 			</button>
 		</div>
+		<select name="per_page" id="per_page" @input="setPerPage">
+			<option value='3'>3</option>
+			<option value='10' selected>10</option>
+			<option value='20'>20</option>
+			<option value='30'>30</option>
+			<option value='50'>50</option>
+			<option value='100'>100</option>
+		</select>
 	</form>
 </template>
 
@@ -35,10 +43,21 @@ export default {
 				this.fetchItems()
 			}
 		},
+		clearSearchQuery(event) {
+			this.setPage(1)
+			this.setSearch("")
+			this.fetchItems()
+			event.preventDefault()
+		},
+		setPerPage(event) {
+			this.setLimit(event.target.value)
+			this.fetchItems()
+		},
 		...mapMutations({
 			setSearch: 'searchItems/setSearch',
 			setPage: 'searchItems/setPage',
-			setLoading: 'searchItems/setLoading'
+			setLoading: 'searchItems/setLoading',
+			setLimit: 'searchItems/setLimit'
 		}),
 		...mapActions({
 			fetchItems: 'searchItems/fetchItems'
@@ -46,7 +65,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			search: state => state.searchItems.search,
+			search: state => state.searchItems.query.search,
 			isItemsLoading: state => state.searchItems.isItemsLoading
 		})
 	}

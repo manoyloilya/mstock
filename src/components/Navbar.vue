@@ -17,85 +17,12 @@
 						<nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
 							<!-- Start Mainmanu Nav -->
 							<ul class="mainmenu">
-								<li class="has-droupdown has-menu-child-item">
-									<a href="#">Categories</a>
-									<ul class="submenu">
-										<li>
-											<a href="explore-one.html">
-												Explore Filter
-												<i class="feather-fast-forward"></i>
-											</a>
-										</li>
-										<li>
-											<a href="explore-two.html"
-												>Explore Isotop<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-three.html"
-												>Explore Carousel<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-four.html"
-												>Explore Simple<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-five.html"
-												>Explore Place Bid<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-six.html"
-												>Place Bid With Filter<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-seven.html"
-												>Place Bid With Isotop<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-eight.html"
-												>Place Bid With Carousel<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-list-style.html"
-												>Explore Style List<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-list-column-two.html"
-												>Explore List Col-Two<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a href="explore-left-filter.html"
-												>Explore Left Filter<i class="feather-fast-forward"></i
-											></a>
-										</li>
-										<li>
-											<a class="live-expo" href="explore-live.html">Live Explore</a>
-										</li>
-										<li>
-											<a class="live-expo" href="explore-live-two.html"
-												>Live Explore Carousel</a
-											>
-										</li>
-										<li>
-											<a class="live-expo" href="explore-live-three.html"
-												>Live With Place Bid</a
-											>
-										</li>
-									</ul>
-								</li>
 								<li>
-									<a @click="$router.push('/category')">Vectors</a>
+									<a @click="$router.push('/search?stock_type=2873')">Vectors</a>
 								</li>
-								<li><a href="about.html">Photos</a></li>
-								<li><a @click="$router.push('/search')">PSD</a></li>
+								<li><a @click="$router.push('/search?stock_type=2872')">Photos</a></li>
+                <li><a @click="$router.push({ name: 'search', query: {stock_type: 2874} })">PSD</a></li>
+                <li><a @click="$router.push('/search?stock_type=2875')">Icons</a></li>
 							</ul>
 							<!-- End Mainmanu Nav -->
 						</nav>

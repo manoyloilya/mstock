@@ -13,20 +13,20 @@
 				<a href="product-details.html">
 					<img
 						v-if="
-							stock._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url !== ''
+							stock.stock_thumb !== ''
 						"
-						:src="stock._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url"
+						v-lazy="stock.stock_thumb"
 						alt=""
 					/>
 				</a>
 			</div>
 			<div class="product-share-wrapper">
 				<div class="profile-share">
-					<a href="author.html" class="avatar" :data-tooltip="stock._embedded.author[0].name">
+					<a href="author.html" class="avatar" :data-tooltip="stock.author">
 						<img :src="stock.author_avatar" alt="Nft_Profile" />
 					</a>
 					<a class="more-author-text" href="#">
-						{{ stock._embedded.author[0].name }}
+						{{ stock.author }}
 					</a>
 				</div>
 				<div class="react-area">

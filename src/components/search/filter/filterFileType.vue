@@ -6,7 +6,7 @@
 			<div class="content">
 				<option-tag
 					type="checkbox"
-					name="file_type"
+					name="stockFileType"
 					optiontitle="AI"
 					value="1443"
 					v-model="optionValue"
@@ -14,7 +14,7 @@
 				></option-tag>
 				<option-tag
 					type="checkbox"
-					name="file_type"
+					name="stockFileType"
 					optiontitle="EPS"
 					value="1444"
 					v-model="optionValue"
@@ -22,7 +22,7 @@
 				></option-tag>
 				<option-tag
 					type="checkbox"
-					name="file_type"
+					name="stockFileType"
 					optiontitle="JPG"
 					value="1445"
 					v-model="optionValue"
@@ -30,7 +30,7 @@
 				></option-tag>
 				<option-tag
 					type="checkbox"
-					name="file_type"
+					name="stockFileType"
 					optiontitle="PSD"
 					value="1442"
 					v-model="optionValue"
@@ -54,13 +54,22 @@ export default {
 	},
 	methods: {
 		changeType() {
-			let stockFileTypeArr = this.stockFileType.split(',').filter(Number)
+			let stockFileTypeArr = _.split(this.stockFileType, ',').filter(Number)
 			if (stockFileTypeArr.includes(this.optionValue)) {
 				const index = stockFileTypeArr.indexOf(this.optionValue)
 				stockFileTypeArr.splice(index, 1)
 			} else {
 				stockFileTypeArr.push(this.optionValue)
 			}
+			// if (Object.values(this.$route.query).includes(value)) {
+      //
+      // } else {
+      //   this.$router.push({
+      //     query: { ...this.$route.query, stock_file_type: this.optionValue },
+      //   })
+      // }
+
+      console.log({...(this.$route.query, {stock_file_type: this.optionValue})})
 			this.setPage(1)
 			this.setStockFileType(stockFileTypeArr.toString())
 			this.fetchItems()
@@ -75,7 +84,7 @@ export default {
 	},
 	computed: {
 		...mapState({
-			stockFileType: state => state.searchItems.stockFileType
+			stockFileType: state => state.searchItems.query.stockFileType
 		})
 	}
 }

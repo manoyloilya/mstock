@@ -513,7 +513,7 @@
         },
         selectJs:function(e){
             $(document).ready(function() {
-                $('select').niceSelect();
+                // $('select').niceSelect();
             });
         },
         popupMobileMenu: function (e) {

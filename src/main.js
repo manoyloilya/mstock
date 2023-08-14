@@ -2,6 +2,9 @@ import { createApp } from 'vue'
 import App from './App'
 import components from '@/components/UI'
 import router from '@/router/router'
+import _ from 'lodash'
+import VueLazyload from 'vue-lazyload'
+
 // import directives from '@/directives'
 import store from '@/store'
 import VeeValidate from 'vee-validate'
@@ -20,5 +23,7 @@ components.forEach(component => {
 
 app.use(router)
 	.use(store)
+	.use(_)
+	.use(VueLazyload)
 	// .use(VeeValidate)
 	.mount('#app')
