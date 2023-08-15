@@ -5,34 +5,11 @@
 			<h5 class="widget-title">Orientation</h5>
 			<div class="content">
 				<option-tag
+          v-for="(value, title) in this.orientationArr"
 					type="checkbox"
 					name="stockOrientation"
-					optiontitle="Horizontal"
-					value="1446"
-					v-model="optionValue"
-					@input="changeType"
-				></option-tag>
-				<option-tag
-					type="checkbox"
-					name="stockOrientation"
-					optiontitle="Panoramic"
-					value="1449"
-					v-model="optionValue"
-					@input="changeType"
-				></option-tag>
-				<option-tag
-					type="checkbox"
-					name="stockOrientation"
-					optiontitle="Square"
-					value="1448"
-					v-model="optionValue"
-					@input="changeType"
-				></option-tag>
-				<option-tag
-					type="checkbox"
-					name="stockOrientation"
-					optiontitle="Vertical"
-					value="1447"
+					:optiontitle="title"
+					:value="value"
 					v-model="optionValue"
 					@input="changeType"
 				></option-tag>
@@ -49,7 +26,13 @@ export default {
 	components: { OptionTag },
 	data() {
 		return {
-			optionValue: ''
+			optionValue: '',
+      orientationArr: {
+        Horizontal: '1446',
+        Panoramic: '1449',
+        Square: '1448',
+        Vertical: '1447',
+      }
 		}
 	},
 	methods: {

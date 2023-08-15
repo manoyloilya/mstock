@@ -5,34 +5,11 @@
 			<h5 class="widget-title">Category</h5>
 			<div class="content">
 				<option-tag
+          v-for="(value, title) in this.fileTypeArr"
 					type="radio"
 					name="stockType"
-					optiontitle="Photos"
-					value="2872"
-					v-model="optionValue"
-					@input="changeType"
-				></option-tag>
-				<option-tag
-					type="radio"
-					name="stockType"
-					optiontitle="Vectors"
-					value="2873"
-					v-model="optionValue"
-					@input="changeType"
-				></option-tag>
-				<option-tag
-					type="radio"
-					name="stockType"
-					optiontitle="PSD"
-					value="2874"
-					v-model="optionValue"
-					@input="changeType"
-				></option-tag>
-				<option-tag
-					type="radio"
-					name="stockType"
-					optiontitle="Icons"
-					value="2875"
+					:optiontitle="title"
+					:value="value"
 					v-model="optionValue"
 					@input="changeType"
 				></option-tag>
@@ -49,18 +26,19 @@ export default {
 	components: { OptionTag },
 	data() {
 		return {
-			optionValue: ''
+			optionValue: '',
+      fileTypeArr: {
+        Photos: '2872',
+        Vectors: '2873',
+        PSD: '2874',
+        Icons: '2875',
+      }
 		}
 	},
 	methods: {
 		changeType() {
 			this.setPage(1)
 			this.setStockType(this.optionValue)
-
-			// this.$router.push({
-			// 	name: 'search',
-			// 	query: { page: 1, ...(this.$route.query, {stock_type: this.optionValue}) }
-			// })
 			this.fetchItems()
 		},
 		...mapMutations({
