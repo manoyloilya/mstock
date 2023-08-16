@@ -15,16 +15,14 @@
 					</div>
 					<div class="mainmenu-wrapper">
 						<nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
-							<!-- Start Mainmanu Nav -->
+							<!-- Start Main menu Nav -->
 							<ul class="mainmenu">
-								<li>
-									<a @click="$router.push('/search?stock_type=2873')">Vectors</a>
-								</li>
-								<li><a @click="$router.push('/search?stock_type=2872')">Photos</a></li>
-                <li><a @click="$router.push({ name: 'search', query: {stock_type: 2874} })">PSD</a></li>
-                <li><a @click="$router.push('/search?stock_type=2875')">Icons</a></li>
+								<li :class='(this.query.stockType === "2873") ? "active" : ""'><a @click="$router.push({ name: 'search', query: {page:1, stock_type: 2873} })">Vectors</a></li>
+								<li :class='(this.query.stockType === "2872") ? "active" : ""'><a @click="$router.push({ name: 'search', query: {page:1, stock_type: 2872} })">Photos</a></li>
+                <li :class='(this.query.stockType === "2874") ? "active" : ""'><a @click="$router.push({ name: 'search', query: {page:1, stock_type: 2874} })">PSD</a></li>
+                <li :class='(this.query.stockType === "2875") ? "active" : ""'><a @click="$router.push({ name: 'search', query: {page:1, stock_type: 2875} })">Icons</a></li>
 							</ul>
-							<!-- End Mainmanu Nav -->
+							<!-- End Main menu Nav -->
 						</nav>
 					</div>
 				</div>
@@ -534,7 +532,8 @@ export default {
 	computed: {
 		...mapState({
 			loggedIn: state => state.auth.status.loggedIn,
-			user: state => state.auth.user
+			user: state => state.auth.user,
+			query: state => state.searchItems.query,
 		}),
 		...mapGetters({
 			getAuthData: 'authData/getAuthData'

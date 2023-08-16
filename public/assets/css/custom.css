@@ -177,3 +177,13 @@
 	width: 7px;
 	height: 7px;
 }
+.mainmenu-nav .mainmenu li a {
+	cursor: pointer;
+}
+
+.logo-thumbnail a {
+	cursor: pointer;
+}
+.mainmenu-nav .mainmenu li.active a {
+	color: #43a4fe;
+}

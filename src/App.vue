@@ -2,7 +2,7 @@
 	<navbar></navbar>
 	<div id="content" class="site-content">
 		<!-- <page-title></page-title> -->
-		<router-view :key="$route.path"></router-view>
+		<router-view :key="$route.fullPath"></router-view>
 	</div>
 	<sitefooter></sitefooter>
 </template>
