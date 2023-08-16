@@ -7,12 +7,13 @@
 			</button>
 		</div>
 		<select name="per_page" id="per_page" @input="setPerPage">
-			<option value='3'>3</option>
-			<option value='10' selected>10</option>
-			<option value='20'>20</option>
-			<option value='30'>30</option>
-			<option value='50'>50</option>
-			<option value='100'>100</option>
+			<option
+          v-for='value in this.limitOptions'
+          :selected='this.limit === value'
+          :value='value'
+      >
+        {{ value }}
+      </option>
 		</select>
 	</form>
 </template>
@@ -25,14 +26,14 @@ import SearchContent from '@/components/search/SearchContent'
 export default {
 	data() {
 		return {
-			typing: false
+			typing: false,
+      limitOptions: ['50', '30', '20', '10']
 		}
 	},
 	components: {
 		SearchFilter,
 		SearchContent
 	},
-
 	methods: {
 		setSearchQuery(event) {
 			clearTimeout(this.typing)
@@ -66,6 +67,7 @@ export default {
 	computed: {
 		...mapState({
 			search: state => state.searchItems.query.search,
+			limit: state => state.searchItems.query.limit,
 			isItemsLoading: state => state.searchItems.isItemsLoading
 		})
 	}

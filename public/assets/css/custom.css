@@ -8,7 +8,7 @@
 }
 .stock-items-row {
 	align-items: flex-start;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 .stock-item {
 	margin-bottom: 25px;

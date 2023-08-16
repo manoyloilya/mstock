@@ -63,7 +63,7 @@ export const searchItemsModule = {
 			try {
 				commit('setLoading', true)
 				let params = {
-					per_page: state.query.limit,
+					per_page: (state.query.limit) ? state.query.limit : 50,
 					page: state.query.page
 				}
 				if (state.query.stockType) params.stock_type = state.query.stockType
