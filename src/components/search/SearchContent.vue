@@ -2,23 +2,20 @@
 	<!-- New items Start -->
 	<div class='rn-new-items'>
 		<div class='container'>
-			<!-- <div class="row g-5"> -->
 			<search-form></search-form>
-			<div class='row stock-items-row' v-if='!isItemsLoading' :key='$route.fullPath'>
-				<stock-item v-if='items.length' v-for='stock in items' :stock='stock' :key='stock.id' />
-				<h4 v-else>No items found</h4>
+			<div class='row stock-items-row' v-if='!isItemsLoading && items.length' :key='$route.fullPath'>
+				<stock-item v-for='stock in items' :stock='stock' :key='stock.id' />
 			</div>
-			<!-- </div> -->
+      <h4 v-else>No items found</h4>
 		</div>
 	</div>
-	<pagination></pagination>
+  <pagination v-on:page-updated="changePage($event)" :totalPages='totalPages' :page='page'></pagination>
 </template>
 
 <script>
 import StockItem from '@/components/sections/NewestItems/StockItem'
 import { mapActions, mapMutations, mapState } from 'vuex'
 import SearchForm from '@/components/search/SearchForm.vue'
-import { merge } from 'lodash'
 import Pagination from '@/components/search/Pagination'
 
 export default {
@@ -29,6 +26,7 @@ export default {
 	},
 	methods: {
 		changePage(pageNumber) {
+		  console.log('page updated' + pageNumber)
 			this.$router.push({
 				query: { ...this.$route.query, page: pageNumber }
 			})

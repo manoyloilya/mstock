@@ -51,17 +51,16 @@
 
 					<div class="setting-option header-btn rbt-site-header">
 						<div class="icon-box">
-							<a @click="$router.push('/login')" class="btn btn-primary-alta btn-small"
-								>Sign in</a
-							>
+							<a v-if='loggedIn' @click="handleLogout" class="btn btn-primary-alta btn-small">Log out</a>
+							<a v-if='!loggedIn' @click="$router.push('/login')" class="btn btn-primary-alta btn-small">Sign in</a>
 						</div>
 					</div>
 
 					<div class="setting-option rn-icon-list notification-badge">
 						<div class="icon-box">
-							<a href="activity.html"
-								><i class="feather-bell"></i><span class="badge">6</span></a
-							>
+							<a v-if='loggedIn' href="activity.html">
+                <img :src="(user.user_avatar) ? user.user_avatar : '/images/icons/boy-avater.png'" alt="">
+              </a>
 						</div>
 					</div>
 
@@ -527,7 +526,11 @@ export default {
 	methods: {
 		...mapActions({
 			fetchAuthData: 'authData/fetchAuthData'
-		})
+		}),
+    handleLogout(user) {
+      this.$router.push('/')
+      this.$store.dispatch('auth/logout', user)
+    }
 	},
 	computed: {
 		...mapState({

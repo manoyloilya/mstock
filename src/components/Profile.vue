@@ -204,7 +204,6 @@
 			<strong>Email:</strong>
 			{{ currentUser.user_email }}
 		</p>
-		<a href="#" class="btn btn-blue" @click="handleLogout">Log out</a>
 	</div>
 </template>
 
@@ -224,10 +223,7 @@ export default {
 		}
 	},
 	methods: {
-		handleLogout(user) {
-			this.$router.push('/')
-			this.$store.dispatch('auth/logout', user)
-		}
+
 	}
 }
 </script>

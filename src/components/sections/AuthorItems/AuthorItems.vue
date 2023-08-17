@@ -26,46 +26,16 @@
 			</div>
 		</div>
 	</div>
-	<nav class="pagination-wrapper" aria-label="Page navigation example">
-		<ul class="pagination single-column-blog">
-			<li v-if="page !== 1" class="page-item">
-				<a class="page-link" href="#" @click="changePage(page - 1)">Previous</a>
-			</li>
-
-			<li v-for="pageNumber in totalPages" :key="pageNumber" class="page-item">
-				<a
-					v-if="
-						page == pageNumber ||
-							page == pageNumber - 1 ||
-							page == pageNumber + 1 ||
-							page == pageNumber - 2 ||
-							page == pageNumber + 2 ||
-							page == pageNumber - 3 ||
-							page == pageNumber + 3 ||
-							1 == pageNumber ||
-							totalPages == pageNumber
-					"
-					class="page-link"
-					@click="changePage(pageNumber)"
-					:class="{
-						active: page === pageNumber
-					}"
-				>
-					{{ page == pageNumber - 3 || page == pageNumber + 3 ? '...' : pageNumber }}
-				</a>
-			</li>
-			<li v-if="page !== totalPages" class="page-item">
-				<a class="page-link" href="#" @click="changePage(page + 1)">Next</a>
-			</li>
-		</ul>
-	</nav>
+	<pagination></pagination>
 </template>
 
 <script>
 import StockItem from '@/components/sections/NewestItems/StockItem'
 import { mapActions, mapMutations, mapState } from 'vuex'
+import Pagination from '@/components/search/Pagination'
 export default {
 	components: {
+    Pagination,
 		StockItem
 	},
 	methods: {

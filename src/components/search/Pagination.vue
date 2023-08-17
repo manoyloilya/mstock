@@ -8,19 +8,9 @@
 
       <li v-for='pageNumber in totalPages' :key='pageNumber' class='page-item'>
         <a
-            v-if='
-						page == pageNumber ||
-						page == pageNumber - 1 ||
-						page == pageNumber + 1 ||
-						page == pageNumber - 2 ||
-						page == pageNumber + 2 ||
-						page == pageNumber - 3 ||
-						page == pageNumber + 3 ||
-						1 == pageNumber ||
-						totalPages == pageNumber
-					'
+            v-if='checkPage'
             class='page-link'
-            @click='changePage(pageNumber)'
+            @click.prevent='changePage(pageNumber)'
             href='#'
             :class='{
 						active: parseInt(page) === pageNumber
@@ -38,47 +28,35 @@
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from 'vuex'
-import OptionTag from '@/components/search/filter/options/optionTag.vue'
-
 export default {
-  components: { OptionTag },
   data() {
     return {
-      optionValue: [],
-      fileTypes: {
-        AI: '1443',
-        EPS: '1444',
-        JPG: '1445',
-        PSD: '1442'
-      }
+      pageNumber: 0,
     }
+  },
+  props: {
+    page: [String, Number],
+    totalPages: [String, Number]
   },
   methods: {
     changePage(pageNumber) {
-      this.$router.push({
-        query: { ...this.$route.query, page: pageNumber }
-      })
-      this.setPage(pageNumber)
-      this.fetchItems()
+      this.$emit('page-updated', pageNumber)
     },
-    ...mapMutations({
-      setPage: 'searchItems/setPage',
-      setQuery: 'searchItems/setQuery'
-    }),
-    ...mapActions({
-      fetchItems: 'searchItems/fetchItems'
-    })
+    checkPage() {
+      if (
+          page == pageNumber ||
+          page == pageNumber - 1 ||
+          page == pageNumber + 1 ||
+          page == pageNumber - 2 ||
+          page == pageNumber + 2 ||
+          page == pageNumber - 3 ||
+          page == pageNumber + 3 ||
+          1 == pageNumber ||
+          totalPages == pageNumber
+      ) {
+        return true
+      }
+    }
   },
-
-  computed: {
-    ...mapState({
-      items: state => state.searchItems.items,
-      page: state => state.searchItems.query.page,
-      totalPages: state => state.searchItems.totalPages,
-      query: state => state.searchItems.query,
-      isItemsLoading: state => state.searchItems.isItemsLoading
-    })
-  }
 }
 </script>
